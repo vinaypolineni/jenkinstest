@@ -16,9 +16,9 @@ pipeline {
     
         stage('deploy to s3') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                wwithAWS(credentials: 'Jenkins user', region: 'ap-south-1'){
                     sh 'aws s3 cp . s3://polineni-3 --recursive'
-              }
+               }
             }
         }
     }    
