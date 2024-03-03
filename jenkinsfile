@@ -14,9 +14,11 @@ pipeline {
             }
         }
     
-        stage('Stage 3') {
+        stage('deploy to s3') {
             steps {
-                echo 'Hello World'
+                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                    sh 'aws s3 cp . s3://polineni-3 --recursive'
+              }
             }
         }
     }    
