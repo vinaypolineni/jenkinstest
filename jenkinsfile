@@ -16,8 +16,8 @@ pipeline {
     
         stage('deploy to s3') {
             steps {
-                wwithAWS(credentials: 'Jenkins user', region: 'ap-south-1'){
-                    sh 'aws s3 cp . s3://polineni-3 --recursive'
+                wwithAWS(credentials: 'Jenkins user', region: 'ap-south-1') {
+                     sh 'aws s3 cp . s3://polineni-3 --recursive'
                }
             }
         }
